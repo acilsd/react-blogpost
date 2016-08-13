@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 import { createPost } from '../actions/index';
-import style from '../style/custom.css';
+import style from '../style/custom.scss';
 
 class NewPost extends Component {
   static contextTypes = {

@@ -9,6 +9,8 @@ import App from './components/app';
 import reducers from './reducers';
 import routes from './routes';
 
+import test from './style/test.scss';
+
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const container = document.querySelector('.mount-point');

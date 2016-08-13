@@ -3,6 +3,7 @@
 const NODE_ENV = process.env.NODE_ENV || 'development';
 const webpack = require('webpack');
 const path = require('path');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
   context: path.join(__dirname, '/src'),
@@ -39,18 +40,25 @@ module.exports = {
       },
       {
         test: /\.(jpg|jpeg|gif|png)$/,
+        exclude: [/node_modules/],
         loader: 'url-loader?limit=10000&name=images/[name].[ext]'
       },
       {
         test: /\.(woff|woff2|eot|ttf)$/,
+        exclude: [/node_modules/],
         loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
       },
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader",
-        exclude: [/node_modules/]
+        test: /\.scss$/,
+        exclude: [/node_modules/],
+        loaders: [ 'style', 'css?sourceMap', 'postcss', 'sass?sourceMap' ]
       }
     ]
+  },
+  postcss: function(){
+    return {
+      plugins: [autoprefixer({browsers: ['last 2 versions', 'IE 10']})]
+    };
   },
   devServer: {
     devtool: 'eval',
