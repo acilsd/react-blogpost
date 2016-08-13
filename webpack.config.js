@@ -50,6 +50,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+
         exclude: [/node_modules/],
         loaders: [ 'style', 'css?sourceMap', 'postcss', 'sass?sourceMap' ]
       }

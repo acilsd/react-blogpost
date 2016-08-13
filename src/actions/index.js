@@ -5,8 +5,9 @@ export const CREATE_POST = 'CREATE_POST';
 export const FETCH_POST = 'FETCH_POST';
 export const DELETE_POST = 'DELETE_POST';
 export const UMOUNT_POST = 'UMOUNT_POST';
+export const CLEAN = 'CLEAN';
 
-const ROOT_URL = 'http://reduxblog.herokuapp.com/api';
+const ROOT_URL = 'https://reduxblog.herokuapp.com/api';
 const API_KEY = '?key=acilsdpostapp';
 
 export function fetchPosts() {
@@ -42,5 +43,12 @@ export function deletePost(id) {
   return {
     type: DELETE_POST,
     payload: request
+  };
+}
+
+export function cleanState(id) {
+  return {
+    type: CLEAN,
+    payload: id
   };
 }

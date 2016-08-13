@@ -24,13 +24,17 @@ class PostsIndex extends Component {
   render() {
     return (
       <div class="container">
-        <h3>Recent Posts:</h3>
+        <h2>Recent Posts:</h2>
         <ul class="list-group">
+          <li class="list-group-item">
+            <strong class="pull-xs-right">Description</strong>
+            <strong>Post title</strong>
+          </li>
           {this.renderPosts()}
         </ul>
-        <div class="text-xs-right">
-          <Link to='/add' class="btn btn-primary">
-            Add new post
+        <div class="list-group__btn-container">
+          <Link to='/add' class="btn btn-primary custom">
+            New post
           </Link>
         </div>
       </div>

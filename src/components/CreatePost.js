@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
 import { Link } from 'react-router';
 import { createPost } from '../actions/index';
-import style from '../style/custom.scss';
 
 class NewPost extends Component {
   static contextTypes = {
@@ -21,7 +20,7 @@ class NewPost extends Component {
 
     return (
       <form class="container" onSubmit={handleSubmit(this.onSubmit.bind(this))}>
-        <h3>Create a new post</h3>
+        <h3>Create new post</h3>
         <div class={
           `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`
         }>
@@ -32,19 +31,21 @@ class NewPost extends Component {
         <div class={
           `form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`
         }>
-          <label>Category:</label>
+          <label>Post description:</label>
           <input type="text" class="form-control" {...categories}/>
           <div class="text-help">{categories.touched ? categories.error : ''}</div>
         </div>
         <div class={
           `form-group ${content.touched && content.invalid ? 'has-danger' : ''}`
         }>
-          <label>Message:</label>
+          <label>Post message:</label>
           <textarea class="form-control" {...content}/>
           <div class="text-help">{content.touched ? content.error : ''}</div>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <Link to='/' class="btn btn-danger">Cancel</Link>
+        <div class="post-buttons">
+          <button type="submit" class="btn btn-primary custom">Submit</button>
+          <Link to='/' class="btn btn-danger custom">Cancel</Link>
+        </div>
       </form>
     );
   }

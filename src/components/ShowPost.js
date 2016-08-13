@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { fetchPost, deletePost } from '../actions/index';
+import { fetchPost, deletePost, cleanState } from '../actions/index';
 import ProgressBar from './ProgressBar';
 
 class ShowPost extends Component {
@@ -10,6 +10,9 @@ class ShowPost extends Component {
   }
   componentWillMount() {
     this.props.fetchPost(this.props.params.id);
+  }
+  componentWillUnmount() {
+    this.props.cleanState(this.props.params.id);
   }
   onDeleteClick() {
     this.props.deletePost(this.props.params.id)
@@ -27,16 +30,18 @@ class ShowPost extends Component {
 
     return (
       <div class="container">
-        <Link class="btn btn-primary pull-xs-right" to='/'>Back to main page
-        </Link>
-        <button
-          class="btn btn-danger pull-xs-right"
-          onClick={this.onDeleteClick.bind(this)}
-        >Delete this post
-        </button>
-        <h3>{post.title}</h3>
-        <h3>{post.categories}</h3>
-        <p>{post.content}</p>
+        <h4 class="post-title">{post.title}</h4>
+        <h4 class="post-category">{post.categories}</h4>
+        <p class="post-text">{post.content}</p>
+        <div class="post-buttons">
+          <Link class="btn btn-primary custom" to='/'>Back to main page
+          </Link>
+          <button
+            class="btn btn-danger custom"
+            onClick={this.onDeleteClick.bind(this)}
+          >Delete this post
+          </button>
+        </div>
       </div>
     );
   }
@@ -46,4 +51,4 @@ function mapStateToProps(state) {
   return { post: state.posts.post };
 }
 
-export default connect(mapStateToProps, { fetchPost, deletePost })(ShowPost);
+export default connect(mapStateToProps, { fetchPost, deletePost, cleanState })(ShowPost);
