@@ -1,11 +1,12 @@
 {
-  "name": "rdx",
+  "name": "reactblogpost",
   "version": "0.0.1",
-  "description": "reactredux",
-  "main": "app.js",
+  "description": "react-redux-blogpost",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "build": "set NODE_ENV=production&&webpack",
-    "start": "webpack-dev-server --debug --output-pathinfo --watch --colors --inline --port 8080"
+    "wds": "webpack-dev-server --debug --output-pathinfo --watch --colors --inline --port 8080"
   },
   "author": "acilsd",
   "license": "ISC",
@@ -41,7 +42,10 @@
   },
   "dependencies": {
     "axios": "^0.13.1",
+    "body-parser": "^1.15.2",
+    "connect": "^3.4.1",
     "eslint": "^3.2.2",
+    "express": "^4.14.0",
     "lodash": "^4.13.1",
     "material-ui": "^0.15.4",
     "react": "^15.2.0",
