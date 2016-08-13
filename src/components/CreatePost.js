@@ -25,21 +25,21 @@ class NewPost extends Component {
         <div class={
           `form-group ${title.touched && title.invalid ? 'has-danger' : ''}`
         }>
-          <label>Post Title</label>
+          <label>Post Title:</label>
           <input type="text" class="form-control" {...title}/>
           <div class="text-help">{title.touched ? title.error : ''}</div>
         </div>
         <div class={
           `form-group ${categories.touched && categories.invalid ? 'has-danger' : ''}`
         }>
-          <label>Categories</label>
+          <label>Category:</label>
           <input type="text" class="form-control" {...categories}/>
           <div class="text-help">{categories.touched ? categories.error : ''}</div>
         </div>
         <div class={
           `form-group ${content.touched && content.invalid ? 'has-danger' : ''}`
         }>
-          <label>Message</label>
+          <label>Message:</label>
           <textarea class="form-control" {...content}/>
           <div class="text-help">{content.touched ? content.error : ''}</div>
         </div>
