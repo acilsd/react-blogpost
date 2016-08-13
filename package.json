@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "build": "set NODE_ENV=production&&webpack",
-    "wds": "webpack-dev-server --debug --output-pathinfo --watch --colors --inline --port 8080"
+    "start": "webpack-dev-server --debug --output-pathinfo --watch --colors --inline --port 8080"
   },
   "author": "acilsd",
   "license": "ISC",
